@@ -1,0 +1,794 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/10/2022 9:05:11 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-576DM5E"
+  DTS:CreatorName="DESKTOP-576DM5E\ckeer"
+  DTS:DTSID="{CFCC0CD0-505B-48C4-8BAD-5A99712B607B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.521.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Multi_file_upload"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{783DF04A-1A77-4864-9650-4C4370ECCF6A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-576DM5E\MSSQLSERVER02.Customer_Db]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{474E6C22-823C-464E-BC5D-046062928F94}"
+      DTS:ObjectName="DESKTOP-576DM5E\MSSQLSERVER02.Customer_Db">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-576DM5E\MSSQLSERVER02;Initial Catalog=Customer_Db;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9AEDB204-543D-44E4-BA0F-61A3AC455F5C}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::FolderPath]+"\\"+ @[User::FileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\aws\SSIS\Sample Files\customer_details-2022-09.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Username"
+              DTS:DTSID="{8B17FCEB-8350-4B8E-A88C-64B530A2E518}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Identifier"
+              DTS:DTSID="{5770B235-9225-4F97-BF0F-0917F8518A85}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="One_time_password"
+              DTS:DTSID="{C6F23909-A98B-444F-BC50-01F3BAB1D2BB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Recovery_code"
+              DTS:DTSID="{B91FFE2C-8AA0-47D7-8FE3-706101EE6D42}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="First_name"
+              DTS:DTSID="{48FE297D-545E-4176-89EC-1FA70D997404}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Last_name"
+              DTS:DTSID="{AD2F3F4E-A50B-4D1B-AE99-A53F2A295F60}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Department"
+              DTS:DTSID="{0903A792-622C-48A7-931D-AF5E61AAD7D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Location"
+              DTS:DTSID="{0436A2E4-AD55-44A2-9BE4-BF650E133142}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AB046198-1E97-4638-817A-35F973426825}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8">customer_details-2022-09.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F5BF41ED-04B1-47E3-BD7F-8FB4B4B24C92}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\aws\SSIS\Sample Files</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{09A4419F-4B74-4729-8CB6-908D6499B168}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{28FE79F2-83A3-4CED-AA05-6BE4F0504E41}"
+        DTS:ObjectName="{28FE79F2-83A3-4CED-AA05-6BE4F0504E41}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::FolderPath]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\aws\SSIS\Sample Files" />
+            <FEFEProperty
+              FileSpec="*.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\DFT_Customer"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{9FC9DF12-03A3-4E97-B03A-E09C860A4C0A}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Customer"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Username]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Username]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Username]"
+                          name="Username"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Identifier]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Identifier]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Identifier]"
+                          name="Identifier"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[One_time_password]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[One_time_password]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[One_time_password]"
+                          name="One_time_password"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Recovery_code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Recovery_code]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Recovery_code]"
+                          name="Recovery_code"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[First_name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[First_name]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[First_name]"
+                          name="First_name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Last_name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Last_name]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Last_name]"
+                          name="Last_name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Department]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Department]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Department]"
+                          name="Department"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Location]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Location]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Location]"
+                          name="Location"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Username]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Username" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Identifier]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Identifier" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[One_time_password]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="One_time_password" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Recovery_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Recovery_code" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[First_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="First_name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Last_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Last_name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Department]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Department" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Location]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Location" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[customer_details]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-576DM5E\MSSQLSERVER02.Customer_Db]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-576DM5E\MSSQLSERVER02.Customer_Db]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Username]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Username"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Username]"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Username]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Identifier]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Identifier"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Identifier]"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Identifier]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[One_time_password]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="One_time_password"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[One_time_password]"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[One_time_password]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Recovery_code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Recovery_code"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Recovery_code]"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Recovery_code]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[First_name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="First_name"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[First_name]"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[First_name]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Last_name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Last_name"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Last_name]"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Last_name]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Department]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Department"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Department]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Location]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Location"
+                          externalMetadataColumnId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output].Columns[Location]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Username]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Username" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Identifier]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Identifier" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[One_time_password]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="One_time_password" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Recovery_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Recovery_code" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[First_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="First_name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Last_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Last_name" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Department" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Location" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\DFT_Customer.Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop Container\DFT_Customer\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{8D705688-451A-469E-955A-B5F468915F0C}"
+          DTS:ObjectName="{8D705688-451A-469E-955A-B5F468915F0C}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::FileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="152,42.6666666666667"
+          Id="Package\Foreach Loop Container\DFT_Customer"
+          TopLeft="109.249995511025,58.7368441143194" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="387.333333333334,228.666666666667"
+          Size="387.333333333334,272"
+          Id="Package\Foreach Loop Container"
+          TopLeft="191.87499714084,5.42105318535727" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\DFT_Customer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Foreach Loop Container\DFT_Customer\Flat File Source"
+          TopLeft="549.999991804361,33.5263164205234" />
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination"
+          TopLeft="544.999991878867,147.789476465981" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\DFT_Customer.Paths[Flat File Source Output]"
+          TopLeft="629.833325174948,76.1929830871901">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71.5964933787907"
+              Start="0,0"
+              End="0,64.0964933787907">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.0964933787907" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\DFT_Customer\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

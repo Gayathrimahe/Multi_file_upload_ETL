@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32602.291
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Multi_file_upload_ETL", "Multi_file_upload_ETL.dtproj", "{F234A0CE-FF76-4BBE-AF46-A577EB5B85BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F234A0CE-FF76-4BBE-AF46-A577EB5B85BD}.Development|Default.ActiveCfg = Development
+		{F234A0CE-FF76-4BBE-AF46-A577EB5B85BD}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {078628ED-2D9C-4DE8-921C-AEDAF8C49E78}
+	EndGlobalSection
+EndGlobal
